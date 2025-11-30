@@ -20,6 +20,8 @@ import {
   Star,
   Crown,
   Info,
+  X,
+  ImageIcon,
 } from "lucide-react"
 import { AppLayout } from "@/components/app-layout"
 
@@ -40,19 +42,22 @@ export default function PlansPage() {
       id: "start",
       name: "Start",
       icon: Star,
-      description: "Para lojas pequenas que querem testar o poder da IA na prática",
+      description: "Ideal para quem está começando ou quer testar IA na prática.",
       price: 99.7,
       credits: "1.000",
+      channels: 1,
       color: "from-green-500 to-green-600",
       borderColor: "hover:border-green-500/50",
+      imageAI: "none", // none, optional, included
       features: [
         "Até 1.000 SKUs melhorados por ano",
-        "1 Canal de Integração",
-        "Cadastro com 1 Clique",
-        "Painel IA para Melhorias Rápidas",
-        "Relatórios Essenciais de Qualidade de Produto",
-        "Suporte via WhatsApp",
+        "IA de títulos, descrições, atributos e SEO",
+        "Otimização automática de produtos",
+        "Cadastro inteligente com 1 clique",
+        "1 canal de integração",
+        "Suporte básico via WhatsApp",
       ],
+      notIncluded: ["Melhoria de imagem por IA"],
       cta: "Selecionar Plano",
       popular: false,
       current: true,
@@ -61,18 +66,22 @@ export default function PlansPage() {
       id: "basic",
       name: "Basic",
       icon: Rocket,
-      description: "Para quem tem mais volume e quer acelerar o catálogo",
+      description: "Para quem tem volume maior e quer acelerar a operação.",
       price: 249.7,
       credits: "3.000",
+      channels: 2,
       color: "from-blue-500 to-blue-600",
       borderColor: "hover:border-blue-500/50",
+      imageAI: "none",
       features: [
         "Até 3.000 SKUs melhorados por ano",
-        "2 Canais de Integração",
-        "Categorização Automática via IA",
-        "Sugestões de Conversão em Tempo Real",
-        "Suporte Prioritário",
+        "IA de títulos, descrições, atributos e SEO",
+        "Otimização automática de produtos",
+        "Cadastro inteligente com 1 clique",
+        "2 canais de integração",
+        "Suporte prioritário via WhatsApp",
       ],
+      notIncluded: ["Melhoria de imagem por IA"],
       cta: "Selecionar Plano",
       popular: false,
       current: false,
@@ -81,19 +90,23 @@ export default function PlansPage() {
       id: "business",
       name: "Business",
       icon: Building2,
-      description: "Para operações maiores que querem alta velocidade",
+      description: "Pensado para operações profissionais.",
       price: 399.7,
       credits: "5.000",
+      channels: 3,
       color: "from-primary to-pink-600",
       borderColor: "border-primary",
+      imageAI: "optional",
       features: [
         "Até 5.000 SKUs melhorados por ano",
-        "3 Canais de Integração",
-        "Templates de Cadastro Inteligente Liberados",
-        "Correção Automática de Atributos",
-        "Checagem de Qualidade Avançada",
-        "Duplicação Inteligente de Produtos",
+        "IA de títulos, descrições, atributos e SEO",
+        "Otimização automática de produtos",
+        "Cadastro inteligente com 1 clique",
+        "3 canais de integração",
+        "Templates liberados",
+        "Suporte premium via WhatsApp",
       ],
+      optionalFeature: "Melhoria de imagem por IA → opcional por crédito",
       cta: "Selecionar Plano",
       popular: true,
       trial: "Teste grátis por 14 dias",
@@ -103,19 +116,24 @@ export default function PlansPage() {
       id: "professional",
       name: "Professional",
       icon: Crown,
-      description: "Para empresas com catálogo grande, foco em equipe e escala",
+      description: "Para quem quer tudo, sem limites operacionais.",
       price: 799.7,
       credits: "10.000",
+      channels: 4,
       color: "from-amber-500 to-amber-600",
       borderColor: "hover:border-amber-500/50",
+      imageAI: "included",
       features: [
         "Até 10.000 SKUs melhorados por ano",
-        "4 Canais de Integração",
-        "Templates Inteligentes Ilimitados",
-        "Aprimoramento de SEO IA",
-        "Monitoramento Contínuo de Problemas",
-        "Painel Avançado de Conversão de Produtos",
+        "IA de títulos, descrições, atributos e SEO",
+        "Otimização automática de produtos",
+        "Cadastro inteligente com 1 clique",
+        "4 canais de integração",
+        "Templates liberados",
+        "Suporte premium+ via WhatsApp",
+        "Melhoria de imagem por IA 100% inclusa",
       ],
+      highlight: "Plano completo para máxima conversão",
       cta: "Selecionar Plano",
       popular: false,
       current: false,
@@ -124,9 +142,14 @@ export default function PlansPage() {
 
   const faqs = [
     {
-      question: "Como funcionam os créditos de IA?",
+      question: "Como funcionam os SKUs melhorados?",
       answer:
-        "Cada SKU melhorado pela IA consome 1 crédito. Por exemplo: se você melhorou 300 produtos, gastou 300 créditos. Se tem 1.000 créditos/ano, pode melhorar até 1.000 SKUs no período. Os créditos são renovados anualmente.",
+        "Cada SKU (produto único) que você melhora com a IA consome 1 crédito do seu plano. Por exemplo: se você melhorou 300 produtos, usou 300 dos seus créditos anuais. Os créditos são renovados a cada ano de assinatura.",
+    },
+    {
+      question: "A melhoria de imagem por IA está inclusa?",
+      answer:
+        "Nos planos Start e Basic, a melhoria de imagem NÃO está inclusa. No plano Business, ela é opcional e cobra créditos adicionais. Apenas no plano Professional a melhoria de imagem está 100% inclusa sem custos extras.",
     },
     {
       question: "Posso mudar de plano a qualquer momento?",
@@ -134,7 +157,7 @@ export default function PlansPage() {
         "Sim! Você pode fazer upgrade ou downgrade do seu plano a qualquer momento. Se fizer upgrade, a diferença será cobrada proporcionalmente. Se fizer downgrade, o crédito será aplicado na próxima fatura.",
     },
     {
-      question: "O que acontece se eu usar todos os créditos antes do fim do ano?",
+      question: "O que acontece se eu usar todos os SKUs antes do fim do ano?",
       answer:
         "Você receberá um aviso quando atingir 80% dos créditos. Ao esgotar 100%, poderá comprar pacotes adicionais de créditos ou fazer upgrade para um plano maior.",
     },
@@ -151,15 +174,27 @@ export default function PlansPage() {
   ]
 
   const comparisonFeatures = [
-    { name: "Créditos de IA por ano", start: "1.000", basic: "3.000", business: "5.000", professional: "10.000" },
+    { name: "SKUs melhorados por ano", start: "1.000", basic: "3.000", business: "5.000", professional: "10.000" },
     { name: "Canais integrados", start: "1", basic: "2", business: "3", professional: "4" },
-    { name: "Cadastro 1 clique", start: true, basic: true, business: true, professional: true },
-    { name: "Categorização IA", start: false, basic: true, business: true, professional: true },
-    { name: "Templates Inteligentes", start: false, basic: false, business: true, professional: true },
-    { name: "Correção Automática", start: false, basic: false, business: true, professional: true },
-    { name: "SEO IA", start: false, basic: false, business: false, professional: true },
-    { name: "Monitoramento Contínuo", start: false, basic: false, business: false, professional: true },
-    { name: "Suporte", start: "WhatsApp", basic: "WhatsApp", business: "WhatsApp", professional: "WhatsApp Premium" },
+    { name: "IA de títulos e descrições", start: true, basic: true, business: true, professional: true },
+    { name: "IA de atributos e SEO", start: true, basic: true, business: true, professional: true },
+    { name: "Otimização automática", start: true, basic: true, business: true, professional: true },
+    { name: "Cadastro com 1 clique", start: true, basic: true, business: true, professional: true },
+    { name: "Templates liberados", start: false, basic: false, business: true, professional: true },
+    {
+      name: "Melhoria de imagem por IA",
+      start: "Não incluso",
+      basic: "Não incluso",
+      business: "Opcional",
+      professional: "Incluso",
+    },
+    {
+      name: "Suporte",
+      start: "WhatsApp",
+      basic: "WhatsApp Prioritário",
+      business: "WhatsApp Premium",
+      professional: "WhatsApp Premium+",
+    },
   ]
 
   return (
@@ -169,7 +204,8 @@ export default function PlansPage() {
         <div>
           <h1 className="font-serif text-3xl font-bold text-foreground mb-2">Planos</h1>
           <p className="text-muted-foreground">
-            Escolha o plano ideal para o tamanho do seu catálogo. Todos os valores são cobrados anualmente.
+            Escolha o plano ideal para o tamanho do seu catálogo. Todos os valores são cobrados mensalmente com contrato
+            anual.
           </p>
         </div>
 
@@ -198,7 +234,7 @@ export default function PlansPage() {
                   <p className="text-sm font-medium">
                     {currentPlan.creditsUsed.toLocaleString()} / {currentPlan.creditsLimit.toLocaleString()}
                   </p>
-                  <p className="text-xs text-muted-foreground">Créditos IA usados</p>
+                  <p className="text-xs text-muted-foreground">SKUs melhorados</p>
                 </div>
               </div>
               <div className="h-8 w-px bg-border hidden lg:block" />
@@ -216,24 +252,19 @@ export default function PlansPage() {
           </div>
         </div>
 
+        {/* Info Banner */}
         <div className="bg-blue-50 border border-blue-200 rounded-xl p-4">
           <div className="flex items-start gap-3">
             <Info className="h-5 w-5 text-blue-500 flex-shrink-0 mt-0.5" />
             <div>
-              <h4 className="font-medium text-foreground mb-1">Como funcionam os créditos de IA?</h4>
+              <h4 className="font-medium text-foreground mb-1">Por que essa estrutura?</h4>
               <p className="text-sm text-muted-foreground">
-                Cada SKU melhorado pela IA consome <strong>1 crédito</strong>. Exemplo: melhorou 300 produtos = gastou
-                300 créditos. Os créditos são <strong>renovados anualmente</strong> e não acumulam para o próximo ano.
+                Texto e otimização são de uso diário, por isso estão em <strong>todos os planos</strong>. A melhoria de
+                imagem por IA tem custo maior, então é liberada apenas nos planos Business (opcional) e Professional
+                (inclusa).
               </p>
             </div>
           </div>
-        </div>
-
-        <div className="flex items-center justify-center">
-          <Badge className="bg-amber-100 text-amber-700 hover:bg-amber-100 px-4 py-2">
-            <Calendar className="h-4 w-4 mr-2" />
-            Cobrança anual - Economize até 20% vs plano mensal
-          </Badge>
         </div>
 
         {/* Plans Grid - 4 colunas */}
@@ -273,18 +304,15 @@ export default function PlansPage() {
                       </span>
                       <span className="text-muted-foreground text-sm">/mês</span>
                     </div>
-                    <p className="text-xs text-muted-foreground mt-1">
-                      Cobrado anualmente (R$ {(plan.price * 12).toFixed(2).replace(".", ",")})
-                    </p>
                     <div className="mt-3 bg-amber-50 border border-amber-200 rounded-lg p-2">
                       <p className="text-xs font-medium text-amber-700">
                         <Zap className="h-3 w-3 inline mr-1" />
-                        {plan.credits} créditos IA/ano
+                        {plan.credits} SKUs melhorados/ano
                       </p>
                     </div>
                   </div>
 
-                  <ul className="space-y-2 mb-6">
+                  <ul className="space-y-2 mb-4">
                     {plan.features.map((feature, index) => (
                       <li key={index} className="flex items-start gap-2">
                         <Check className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
@@ -292,6 +320,35 @@ export default function PlansPage() {
                       </li>
                     ))}
                   </ul>
+
+                  {/* Not Included Items */}
+                  {plan.notIncluded && plan.notIncluded.length > 0 && (
+                    <ul className="space-y-2 mb-4">
+                      {plan.notIncluded.map((item, index) => (
+                        <li key={index} className="flex items-start gap-2">
+                          <X className="h-4 w-4 text-red-400 mt-0.5 flex-shrink-0" />
+                          <span className="text-xs text-muted-foreground">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+
+                  {/* Optional Feature (Business) */}
+                  {plan.optionalFeature && (
+                    <div className="mb-4 bg-amber-50 border border-amber-200 rounded-lg p-2">
+                      <p className="text-xs text-amber-700 flex items-center gap-1">
+                        <ImageIcon className="h-3 w-3" />
+                        {plan.optionalFeature}
+                      </p>
+                    </div>
+                  )}
+
+                  {/* Highlight (Professional) */}
+                  {plan.highlight && (
+                    <div className="mb-4 bg-green-50 border border-green-200 rounded-lg p-2">
+                      <p className="text-xs text-green-700 font-medium text-center">{plan.highlight}</p>
+                    </div>
+                  )}
 
                   <Button
                     className={`w-full ${plan.popular ? "bg-primary hover:bg-primary/90" : plan.current ? "bg-green-500 hover:bg-green-600" : ""}`}
@@ -333,7 +390,7 @@ export default function PlansPage() {
                       <span>Basic</span>
                     </div>
                   </th>
-                  <th className="text-center p-4 font-medium">
+                  <th className="text-center p-4 font-medium bg-primary/5">
                     <div className="flex flex-col items-center gap-1">
                       <Building2 className="h-5 w-5 text-primary" />
                       <span>Business</span>
@@ -356,10 +413,12 @@ export default function PlansPage() {
                         feature.start ? (
                           <Check className="h-5 w-5 text-green-500 mx-auto" />
                         ) : (
-                          <span className="text-muted-foreground">-</span>
+                          <X className="h-5 w-5 text-red-400 mx-auto" />
                         )
                       ) : (
-                        <span className="text-sm">{feature.start}</span>
+                        <span className={`text-sm ${feature.start === "Não incluso" ? "text-red-500" : ""}`}>
+                          {feature.start}
+                        </span>
                       )}
                     </td>
                     <td className="p-4 text-center">
@@ -367,10 +426,12 @@ export default function PlansPage() {
                         feature.basic ? (
                           <Check className="h-5 w-5 text-green-500 mx-auto" />
                         ) : (
-                          <span className="text-muted-foreground">-</span>
+                          <X className="h-5 w-5 text-red-400 mx-auto" />
                         )
                       ) : (
-                        <span className="text-sm">{feature.basic}</span>
+                        <span className={`text-sm ${feature.basic === "Não incluso" ? "text-red-500" : ""}`}>
+                          {feature.basic}
+                        </span>
                       )}
                     </td>
                     <td className="p-4 text-center bg-primary/5">
@@ -378,10 +439,14 @@ export default function PlansPage() {
                         feature.business ? (
                           <Check className="h-5 w-5 text-green-500 mx-auto" />
                         ) : (
-                          <span className="text-muted-foreground">-</span>
+                          <X className="h-5 w-5 text-red-400 mx-auto" />
                         )
                       ) : (
-                        <span className="text-sm">{feature.business}</span>
+                        <span
+                          className={`text-sm ${feature.business === "Opcional" ? "text-amber-600 font-medium" : ""}`}
+                        >
+                          {feature.business}
+                        </span>
                       )}
                     </td>
                     <td className="p-4 text-center">
@@ -389,10 +454,14 @@ export default function PlansPage() {
                         feature.professional ? (
                           <Check className="h-5 w-5 text-green-500 mx-auto" />
                         ) : (
-                          <span className="text-muted-foreground">-</span>
+                          <X className="h-5 w-5 text-red-400 mx-auto" />
                         )
                       ) : (
-                        <span className="text-sm">{feature.professional}</span>
+                        <span
+                          className={`text-sm ${feature.professional === "Incluso" ? "text-green-600 font-medium" : ""}`}
+                        >
+                          {feature.professional}
+                        </span>
                       )}
                     </td>
                   </tr>
@@ -467,7 +536,7 @@ export default function PlansPage() {
               <MessageCircle className="h-4 w-4 mr-2" />
               Falar com Especialista
             </Button>
-            <Button className="bg-primary hover:bg-primary/90">
+            <Button className="bg-amber-500 hover:bg-amber-600">
               <Calendar className="h-4 w-4 mr-2" />
               Agendar Demonstração
             </Button>
