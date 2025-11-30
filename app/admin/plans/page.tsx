@@ -3,10 +3,8 @@
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Switch } from "@/components/ui/switch"
 import {
   Check,
-  Sparkles,
   Building2,
   Rocket,
   Zap,
@@ -15,66 +13,86 @@ import {
   HelpCircle,
   CreditCard,
   Calendar,
-  TrendingUp,
   Shield,
   Clock,
   Users,
   MessageCircle,
+  Star,
+  Crown,
+  Info,
 } from "lucide-react"
 import { AppLayout } from "@/components/app-layout"
 
 export default function PlansPage() {
-  const [isAnnual, setIsAnnual] = useState(false)
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null)
 
   // Plano atual do usuário (mock)
   const currentPlan = {
-    name: "Pro",
-    productsUsed: 1847,
-    productsLimit: 3000,
+    name: "Start",
+    creditsUsed: 347,
+    creditsLimit: 1000,
     renewDate: "15/12/2024",
     daysLeft: 20,
   }
 
   const plans = [
     {
-      id: "pro",
-      name: "Pro",
-      icon: Rocket,
-      description: "Ideal para pequenos lojistas iniciando no e-commerce",
-      priceMonthly: 249.9,
-      priceAnnual: 199.9,
-      color: "from-blue-500 to-blue-600",
-      borderColor: "hover:border-blue-500/50",
+      id: "start",
+      name: "Start",
+      icon: Star,
+      description: "Para lojas pequenas que querem testar o poder da IA na prática",
+      price: 99.7,
+      credits: "1.000",
+      color: "from-green-500 to-green-600",
+      borderColor: "hover:border-green-500/50",
       features: [
-        "Até 3.000 produtos melhorados por mês",
-        "Melhoria de produto com IA",
-        "Funciona em qualquer canal: Bling, Tray, Tiny",
-        "Ajuste automático de Título, descrição, SEO",
-        "Limpeza de caracteres e formatação",
-        "Envio das melhorias de volta para o canal",
-        "Suporte padrão por email",
+        "Até 1.000 SKUs melhorados por ano",
+        "1 Canal de Integração",
+        "Cadastro com 1 Clique",
+        "Painel IA para Melhorias Rápidas",
+        "Relatórios Essenciais de Qualidade de Produto",
+        "Suporte via WhatsApp",
       ],
       cta: "Selecionar Plano",
       popular: false,
       current: true,
     },
     {
+      id: "basic",
+      name: "Basic",
+      icon: Rocket,
+      description: "Para quem tem mais volume e quer acelerar o catálogo",
+      price: 249.7,
+      credits: "3.000",
+      color: "from-blue-500 to-blue-600",
+      borderColor: "hover:border-blue-500/50",
+      features: [
+        "Até 3.000 SKUs melhorados por ano",
+        "2 Canais de Integração",
+        "Categorização Automática via IA",
+        "Sugestões de Conversão em Tempo Real",
+        "Suporte Prioritário",
+      ],
+      cta: "Selecionar Plano",
+      popular: false,
+      current: false,
+    },
+    {
       id: "business",
       name: "Business",
       icon: Building2,
-      description: "Indicado para sellers com múltiplos canais ativos",
-      priceMonthly: 499.9,
-      priceAnnual: 399.9,
+      description: "Para operações maiores que querem alta velocidade",
+      price: 399.7,
+      credits: "5.000",
       color: "from-primary to-pink-600",
       borderColor: "border-primary",
       features: [
-        "Até 5.000 produtos melhorados por mês",
-        "Maior capacidade para grandes catálogos",
-        "Processamento prioritário na fila de IA",
-        "Suporte Avançado com chat",
-        "Relatórios de performance",
-        "Tudo do plano Pro",
+        "Até 5.000 SKUs melhorados por ano",
+        "3 Canais de Integração",
+        "Templates de Cadastro Inteligente Liberados",
+        "Correção Automática de Atributos",
+        "Checagem de Qualidade Avançada",
+        "Duplicação Inteligente de Produtos",
       ],
       cta: "Selecionar Plano",
       popular: true,
@@ -82,24 +100,23 @@ export default function PlansPage() {
       current: false,
     },
     {
-      id: "enterprise",
-      name: "Enterprise",
-      icon: Sparkles,
-      description: "Para grandes operações em escala",
-      priceMonthly: null,
-      priceAnnual: null,
+      id: "professional",
+      name: "Professional",
+      icon: Crown,
+      description: "Para empresas com catálogo grande, foco em equipe e escala",
+      price: 799.7,
+      credits: "10.000",
       color: "from-amber-500 to-amber-600",
       borderColor: "hover:border-amber-500/50",
       features: [
-        "IA ilimitada",
-        "Processamento dedicado e mais rápido",
-        "Suporte VIP prioritário",
-        "Canais personalizados e API's próprias",
-        "Acompanhamento dedicado",
-        "Onboarding personalizado",
-        "Tudo dos demais planos",
+        "Até 10.000 SKUs melhorados por ano",
+        "4 Canais de Integração",
+        "Templates Inteligentes Ilimitados",
+        "Aprimoramento de SEO IA",
+        "Monitoramento Contínuo de Problemas",
+        "Painel Avançado de Conversão de Produtos",
       ],
-      cta: "Falar com Consultor",
+      cta: "Selecionar Plano",
       popular: false,
       current: false,
     },
@@ -107,24 +124,24 @@ export default function PlansPage() {
 
   const faqs = [
     {
+      question: "Como funcionam os créditos de IA?",
+      answer:
+        "Cada SKU melhorado pela IA consome 1 crédito. Por exemplo: se você melhorou 300 produtos, gastou 300 créditos. Se tem 1.000 créditos/ano, pode melhorar até 1.000 SKUs no período. Os créditos são renovados anualmente.",
+    },
+    {
       question: "Posso mudar de plano a qualquer momento?",
       answer:
         "Sim! Você pode fazer upgrade ou downgrade do seu plano a qualquer momento. Se fizer upgrade, a diferença será cobrada proporcionalmente. Se fizer downgrade, o crédito será aplicado na próxima fatura.",
     },
     {
-      question: "O que acontece se eu exceder o limite de produtos?",
+      question: "O que acontece se eu usar todos os créditos antes do fim do ano?",
       answer:
-        "Quando você atingir 80% do limite, enviaremos um aviso. Ao atingir 100%, os novos produtos entrarão em uma fila e serão processados no próximo ciclo, ou você pode fazer upgrade para continuar processando.",
-    },
-    {
-      question: "Como funciona o período de teste?",
-      answer:
-        "O plano Business oferece 14 dias de teste grátis. Durante esse período, você tem acesso a todos os recursos. Não cobramos nada até o fim do período de teste.",
+        "Você receberá um aviso quando atingir 80% dos créditos. Ao esgotar 100%, poderá comprar pacotes adicionais de créditos ou fazer upgrade para um plano maior.",
     },
     {
       question: "Quais formas de pagamento são aceitas?",
       answer:
-        "Aceitamos cartão de crédito, boleto bancário e Pix. Para planos anuais, oferecemos parcelamento em até 12x sem juros no cartão.",
+        "Aceitamos cartão de crédito, boleto bancário e Pix. Oferecemos parcelamento em até 12x sem juros no cartão.",
     },
     {
       question: "Posso cancelar quando quiser?",
@@ -134,13 +151,15 @@ export default function PlansPage() {
   ]
 
   const comparisonFeatures = [
-    { name: "Produtos por mês", pro: "3.000", business: "5.000", enterprise: "Ilimitado" },
-    { name: "Canais integrados", pro: "Todos", business: "Todos", enterprise: "Todos + Custom" },
-    { name: "Processamento IA", pro: "Padrão", business: "Prioritário", enterprise: "Dedicado" },
-    { name: "Suporte", pro: "WhatsApp", business: "WhatsApp", enterprise: "WhatsApp VIP" },
-    { name: "Relatórios", pro: "Básico", business: "Avançado", enterprise: "Personalizado" },
-    { name: "API própria", pro: false, business: false, enterprise: true },
-    { name: "Onboarding", pro: "Autoatendimento", business: "Guiado", enterprise: "Dedicado" },
+    { name: "Créditos de IA por ano", start: "1.000", basic: "3.000", business: "5.000", professional: "10.000" },
+    { name: "Canais integrados", start: "1", basic: "2", business: "3", professional: "4" },
+    { name: "Cadastro 1 clique", start: true, basic: true, business: true, professional: true },
+    { name: "Categorização IA", start: false, basic: true, business: true, professional: true },
+    { name: "Templates Inteligentes", start: false, basic: false, business: true, professional: true },
+    { name: "Correção Automática", start: false, basic: false, business: true, professional: true },
+    { name: "SEO IA", start: false, basic: false, business: false, professional: true },
+    { name: "Monitoramento Contínuo", start: false, basic: false, business: false, professional: true },
+    { name: "Suporte", start: "WhatsApp", basic: "WhatsApp", business: "WhatsApp", professional: "WhatsApp Premium" },
   ]
 
   return (
@@ -150,17 +169,16 @@ export default function PlansPage() {
         <div>
           <h1 className="font-serif text-3xl font-bold text-foreground mb-2">Planos</h1>
           <p className="text-muted-foreground">
-            Todos os planos incluem os mesmos recursos. A diferença é a quantidade de produtos processados pela IA por
-            mês.
+            Escolha o plano ideal para o tamanho do seu catálogo. Todos os valores são cobrados anualmente.
           </p>
         </div>
 
         {/* Current Plan Status */}
-        <div className="bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-200 rounded-xl p-6">
+        <div className="bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 rounded-xl p-6">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
             <div className="flex items-center gap-4">
-              <div className="h-12 w-12 rounded-xl bg-blue-500 flex items-center justify-center">
-                <Rocket className="h-6 w-6 text-white" />
+              <div className="h-12 w-12 rounded-xl bg-green-500 flex items-center justify-center">
+                <Star className="h-6 w-6 text-white" />
               </div>
               <div>
                 <div className="flex items-center gap-2">
@@ -175,19 +193,19 @@ export default function PlansPage() {
 
             <div className="flex flex-wrap items-center gap-6">
               <div className="flex items-center gap-2">
-                <TrendingUp className="h-5 w-5 text-blue-500" />
+                <Zap className="h-5 w-5 text-amber-500" />
                 <div>
                   <p className="text-sm font-medium">
-                    {currentPlan.productsUsed.toLocaleString()} / {currentPlan.productsLimit.toLocaleString()}
+                    {currentPlan.creditsUsed.toLocaleString()} / {currentPlan.creditsLimit.toLocaleString()}
                   </p>
-                  <p className="text-xs text-muted-foreground">Produtos usados</p>
+                  <p className="text-xs text-muted-foreground">Créditos IA usados</p>
                 </div>
               </div>
               <div className="h-8 w-px bg-border hidden lg:block" />
               <div className="w-32 bg-gray-200 rounded-full h-2">
                 <div
-                  className="bg-blue-500 h-2 rounded-full"
-                  style={{ width: `${(currentPlan.productsUsed / currentPlan.productsLimit) * 100}%` }}
+                  className="bg-amber-500 h-2 rounded-full"
+                  style={{ width: `${(currentPlan.creditsUsed / currentPlan.creditsLimit) * 100}%` }}
                 />
               </div>
               <Button variant="outline" size="sm">
@@ -198,30 +216,37 @@ export default function PlansPage() {
           </div>
         </div>
 
-        {/* Billing Toggle */}
-        <div className="flex items-center justify-center gap-4">
-          <span className={`text-sm font-medium ${!isAnnual ? "text-foreground" : "text-muted-foreground"}`}>
-            Mensal
-          </span>
-          <Switch checked={isAnnual} onCheckedChange={setIsAnnual} />
-          <span className={`text-sm font-medium ${isAnnual ? "text-foreground" : "text-muted-foreground"}`}>Anual</span>
-          {isAnnual && <Badge className="bg-green-100 text-green-700 hover:bg-green-100">Economize 20%</Badge>}
+        <div className="bg-blue-50 border border-blue-200 rounded-xl p-4">
+          <div className="flex items-start gap-3">
+            <Info className="h-5 w-5 text-blue-500 flex-shrink-0 mt-0.5" />
+            <div>
+              <h4 className="font-medium text-foreground mb-1">Como funcionam os créditos de IA?</h4>
+              <p className="text-sm text-muted-foreground">
+                Cada SKU melhorado pela IA consome <strong>1 crédito</strong>. Exemplo: melhorou 300 produtos = gastou
+                300 créditos. Os créditos são <strong>renovados anualmente</strong> e não acumulam para o próximo ano.
+              </p>
+            </div>
+          </div>
         </div>
 
-        {/* Plans Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="flex items-center justify-center">
+          <Badge className="bg-amber-100 text-amber-700 hover:bg-amber-100 px-4 py-2">
+            <Calendar className="h-4 w-4 mr-2" />
+            Cobrança anual - Economize até 20% vs plano mensal
+          </Badge>
+        </div>
+
+        {/* Plans Grid - 4 colunas */}
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
           {plans.map((plan) => {
             const Icon = plan.icon
-            const price = isAnnual ? plan.priceAnnual : plan.priceMonthly
 
             return (
               <div
                 key={plan.id}
                 className={`bg-card border rounded-xl overflow-hidden transition-all duration-300 ${
-                  plan.popular
-                    ? "border-2 border-primary scale-105 shadow-xl z-10"
-                    : `border-border ${plan.borderColor}`
-                } ${plan.current ? "ring-2 ring-blue-500 ring-offset-2" : ""}`}
+                  plan.popular ? "border-2 border-primary shadow-xl z-10" : `border-border ${plan.borderColor}`
+                } ${plan.current ? "ring-2 ring-green-500 ring-offset-2" : ""}`}
               >
                 {plan.popular && (
                   <div className="bg-primary text-primary-foreground text-center text-sm font-medium py-1">
@@ -229,58 +254,55 @@ export default function PlansPage() {
                   </div>
                 )}
                 {plan.current && !plan.popular && (
-                  <div className="bg-blue-500 text-white text-center text-sm font-medium py-1">Plano Atual</div>
+                  <div className="bg-green-500 text-white text-center text-sm font-medium py-1">Plano Atual</div>
                 )}
 
-                <div className={`bg-gradient-to-br ${plan.color} p-6 text-white`}>
+                <div className={`bg-gradient-to-br ${plan.color} p-5 text-white`}>
                   <div className="flex items-center gap-2 mb-2">
-                    <Icon className="h-6 w-6" />
-                    <h3 className="text-2xl font-bold">{plan.name}</h3>
+                    <Icon className="h-5 w-5" />
+                    <h3 className="text-xl font-bold">{plan.name}</h3>
                   </div>
-                  <p className="text-white/80 text-sm">{plan.description}</p>
+                  <p className="text-white/80 text-sm leading-tight">{plan.description}</p>
                 </div>
 
-                <div className="p-6">
-                  <div className="mb-6">
-                    {price ? (
-                      <div className="flex items-baseline gap-1">
-                        <span className="text-4xl font-bold text-foreground">
-                          R$ {price.toFixed(2).replace(".", ",")}
-                        </span>
-                        <span className="text-muted-foreground">/mês</span>
-                      </div>
-                    ) : (
-                      <div className="flex items-baseline gap-1">
-                        <span className="text-3xl font-bold text-foreground">Sob consulta</span>
-                        <span className="text-muted-foreground">/mês</span>
-                      </div>
-                    )}
-                    {isAnnual && price && (
-                      <p className="text-sm text-green-600 mt-1">
-                        Economia de R$ {((plan.priceMonthly! - plan.priceAnnual!) * 12).toFixed(2).replace(".", ",")}{" "}
-                        por ano
+                <div className="p-5">
+                  <div className="mb-5">
+                    <div className="flex items-baseline gap-1">
+                      <span className="text-3xl font-bold text-foreground">
+                        R$ {plan.price.toFixed(2).replace(".", ",")}
+                      </span>
+                      <span className="text-muted-foreground text-sm">/mês</span>
+                    </div>
+                    <p className="text-xs text-muted-foreground mt-1">
+                      Cobrado anualmente (R$ {(plan.price * 12).toFixed(2).replace(".", ",")})
+                    </p>
+                    <div className="mt-3 bg-amber-50 border border-amber-200 rounded-lg p-2">
+                      <p className="text-xs font-medium text-amber-700">
+                        <Zap className="h-3 w-3 inline mr-1" />
+                        {plan.credits} créditos IA/ano
                       </p>
-                    )}
+                    </div>
                   </div>
 
-                  <ul className="space-y-3 mb-8">
+                  <ul className="space-y-2 mb-6">
                     {plan.features.map((feature, index) => (
-                      <li key={index} className="flex items-start gap-3">
-                        <Check className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                        <span className="text-sm text-foreground">{feature}</span>
+                      <li key={index} className="flex items-start gap-2">
+                        <Check className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
+                        <span className="text-xs text-foreground">{feature}</span>
                       </li>
                     ))}
                   </ul>
 
                   <Button
-                    className={`w-full ${plan.popular ? "bg-primary hover:bg-primary/90" : plan.current ? "bg-blue-500 hover:bg-blue-600" : ""}`}
+                    className={`w-full ${plan.popular ? "bg-primary hover:bg-primary/90" : plan.current ? "bg-green-500 hover:bg-green-600" : ""}`}
                     variant={plan.popular || plan.current ? "default" : "outline"}
                     disabled={plan.current}
+                    size="sm"
                   >
                     {plan.current ? "Plano Atual" : plan.cta}
                   </Button>
 
-                  {plan.trial && <p className="text-center text-sm text-muted-foreground mt-3">{plan.trial}</p>}
+                  {plan.trial && <p className="text-center text-xs text-muted-foreground mt-2">{plan.trial}</p>}
                 </div>
               </div>
             )
@@ -301,8 +323,14 @@ export default function PlansPage() {
                   <th className="text-left p-4 font-medium">Recurso</th>
                   <th className="text-center p-4 font-medium">
                     <div className="flex flex-col items-center gap-1">
+                      <Star className="h-5 w-5 text-green-500" />
+                      <span>Start</span>
+                    </div>
+                  </th>
+                  <th className="text-center p-4 font-medium">
+                    <div className="flex flex-col items-center gap-1">
                       <Rocket className="h-5 w-5 text-blue-500" />
-                      <span>Pro</span>
+                      <span>Basic</span>
                     </div>
                   </th>
                   <th className="text-center p-4 font-medium">
@@ -313,8 +341,8 @@ export default function PlansPage() {
                   </th>
                   <th className="text-center p-4 font-medium">
                     <div className="flex flex-col items-center gap-1">
-                      <Sparkles className="h-5 w-5 text-amber-500" />
-                      <span>Enterprise</span>
+                      <Crown className="h-5 w-5 text-amber-500" />
+                      <span>Professional</span>
                     </div>
                   </th>
                 </tr>
@@ -324,14 +352,25 @@ export default function PlansPage() {
                   <tr key={index} className="border-b border-border last:border-0">
                     <td className="p-4 font-medium">{feature.name}</td>
                     <td className="p-4 text-center">
-                      {typeof feature.pro === "boolean" ? (
-                        feature.pro ? (
+                      {typeof feature.start === "boolean" ? (
+                        feature.start ? (
                           <Check className="h-5 w-5 text-green-500 mx-auto" />
                         ) : (
                           <span className="text-muted-foreground">-</span>
                         )
                       ) : (
-                        <span className="text-sm">{feature.pro}</span>
+                        <span className="text-sm">{feature.start}</span>
+                      )}
+                    </td>
+                    <td className="p-4 text-center">
+                      {typeof feature.basic === "boolean" ? (
+                        feature.basic ? (
+                          <Check className="h-5 w-5 text-green-500 mx-auto" />
+                        ) : (
+                          <span className="text-muted-foreground">-</span>
+                        )
+                      ) : (
+                        <span className="text-sm">{feature.basic}</span>
                       )}
                     </td>
                     <td className="p-4 text-center bg-primary/5">
@@ -346,14 +385,14 @@ export default function PlansPage() {
                       )}
                     </td>
                     <td className="p-4 text-center">
-                      {typeof feature.enterprise === "boolean" ? (
-                        feature.enterprise ? (
+                      {typeof feature.professional === "boolean" ? (
+                        feature.professional ? (
                           <Check className="h-5 w-5 text-green-500 mx-auto" />
                         ) : (
                           <span className="text-muted-foreground">-</span>
                         )
                       ) : (
-                        <span className="text-sm">{feature.enterprise}</span>
+                        <span className="text-sm">{feature.professional}</span>
                       )}
                     </td>
                   </tr>
