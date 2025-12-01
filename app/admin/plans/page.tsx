@@ -10,18 +10,16 @@ import {
   Zap,
   ChevronDown,
   ChevronUp,
-  HelpCircle,
   CreditCard,
   Calendar,
   Shield,
   Clock,
-  Users,
   MessageCircle,
   Star,
   Crown,
-  Info,
   X,
   ImageIcon,
+  Store,
 } from "lucide-react"
 import { AppLayout } from "@/components/app-layout"
 
@@ -42,22 +40,26 @@ export default function PlansPage() {
       id: "start",
       name: "Start",
       icon: Star,
-      description: "Ideal para quem está começando ou quer testar IA na prática.",
+      description: "Para lojas pequenas que querem testar o poder da IA na prática",
       price: 99.7,
+      priceYearly: 1196.4,
       credits: "1.000",
+      skuLimit: "1.000",
       channels: 1,
       color: "from-green-500 to-green-600",
       borderColor: "hover:border-green-500/50",
-      imageAI: "none", // none, optional, included
       features: [
-        "Até 1.000 SKUs melhorados por ano",
-        "IA de títulos, descrições, atributos e SEO",
-        "Otimização automática de produtos",
-        "Cadastro inteligente com 1 clique",
-        "1 canal de integração",
-        "Suporte básico via WhatsApp",
+        "Melhorias de título, descrição e atributos por IA",
+        "Diagnóstico de catálogo",
+        "Sugestões de SEO por IA",
+        "Painel completo de acompanhamento",
+        "10 melhorias grátis para teste",
+        "Envio de melhorias para qualquer canal conectado",
+        "Suporte via WhatsApp",
       ],
+      imageNote: "Imagem padrão inclusa (sem IA)",
       notIncluded: ["Melhoria de imagem por IA"],
+      multistore: "R$ 149,90 por loja extra",
       cta: "Selecionar Plano",
       popular: false,
       current: true,
@@ -66,22 +68,22 @@ export default function PlansPage() {
       id: "basic",
       name: "Basic",
       icon: Rocket,
-      description: "Para quem tem volume maior e quer acelerar a operação.",
+      description: "Para quem tem volume maior e quer acelerar a operação",
       price: 249.7,
+      priceYearly: 2996.4,
       credits: "3.000",
+      skuLimit: "3.000",
       channels: 2,
       color: "from-blue-500 to-blue-600",
       borderColor: "hover:border-blue-500/50",
-      imageAI: "none",
+      inherited: "Tudo do plano Start +",
       features: [
-        "Até 3.000 SKUs melhorados por ano",
-        "IA de títulos, descrições, atributos e SEO",
-        "Otimização automática de produtos",
-        "Cadastro inteligente com 1 clique",
-        "2 canais de integração",
-        "Suporte prioritário via WhatsApp",
+        "Cadastro por 1 clique ou leitura por código de barras",
+        "Melhoria de Imagens por IA liberada",
+        "Notificações básicas por WhatsApp sobre status da conta",
       ],
-      notIncluded: ["Melhoria de imagem por IA"],
+      imageNote: "2 imagens geradas = 1 crédito adicional",
+      multistore: "R$ 149,90 por loja extra",
       cta: "Selecionar Plano",
       popular: false,
       current: false,
@@ -90,23 +92,24 @@ export default function PlansPage() {
       id: "business",
       name: "Business",
       icon: Building2,
-      description: "Pensado para operações profissionais.",
-      price: 399.7,
+      description: "Pensado para operações profissionais",
+      price: 416.7,
+      priceYearly: 5000.4,
       credits: "5.000",
+      skuLimit: "5.000",
       channels: 3,
       color: "from-primary to-pink-600",
       borderColor: "border-primary",
-      imageAI: "optional",
+      inherited: "Tudo do plano Basic +",
       features: [
-        "Até 5.000 SKUs melhorados por ano",
-        "IA de títulos, descrições, atributos e SEO",
-        "Otimização automática de produtos",
-        "Cadastro inteligente com 1 clique",
-        "3 canais de integração",
-        "Templates liberados",
-        "Suporte premium via WhatsApp",
+        "Suporte avançado por WhatsApp",
+        "Notificações inteligentes de catálogo",
+        "Alertas de baixa performance",
+        "IA monitora catálogo e sugere melhorias automaticamente",
+        "Templates de otimização liberados",
       ],
-      optionalFeature: "Melhoria de imagem por IA → opcional por crédito",
+      imageNote: "2 imagens geradas = 1 crédito adicional",
+      multistore: "R$ 149,90 por loja extra",
       cta: "Selecionar Plano",
       popular: true,
       trial: "Teste grátis por 14 dias",
@@ -116,24 +119,26 @@ export default function PlansPage() {
       id: "professional",
       name: "Professional",
       icon: Crown,
-      description: "Para quem quer tudo, sem limites operacionais.",
+      description: "Para quem quer tudo, sem limites operacionais",
       price: 799.7,
+      priceYearly: 9596.4,
       credits: "10.000",
+      skuLimit: "10.000",
       channels: 4,
       color: "from-amber-500 to-amber-600",
       borderColor: "hover:border-amber-500/50",
-      imageAI: "included",
+      inherited: "Tudo do plano Business +",
       features: [
-        "Até 10.000 SKUs melhorados por ano",
-        "IA de títulos, descrições, atributos e SEO",
-        "Otimização automática de produtos",
-        "Cadastro inteligente com 1 clique",
-        "4 canais de integração",
-        "Templates liberados",
-        "Suporte premium+ via WhatsApp",
-        "Melhoria de imagem por IA 100% inclusa",
+        "Atendimento prioritário",
+        "IA integrada ao WhatsApp como 'agente de catálogo'",
+        "Notificações avançadas: saúde do catálogo",
+        "Performance por canal",
+        "Alertas de quedas de conversão",
+        "Sugestões automáticas de melhoria",
       ],
+      imageNote: "2 imagens geradas = 1 crédito adicional",
       highlight: "Plano completo para máxima conversão",
+      multistore: "R$ 99,90 por loja extra",
       cta: "Selecionar Plano",
       popular: false,
       current: false,
@@ -142,14 +147,19 @@ export default function PlansPage() {
 
   const faqs = [
     {
-      question: "Como funcionam os SKUs melhorados?",
+      question: "Como funcionam os créditos de IA?",
       answer:
-        "Cada SKU (produto único) que você melhora com a IA consome 1 crédito do seu plano. Por exemplo: se você melhorou 300 produtos, usou 300 dos seus créditos anuais. Os créditos são renovados a cada ano de assinatura.",
+        "Cada SKU (produto único) que você melhora com a IA consome 1 crédito do seu plano. Por exemplo: se você melhorou 300 produtos, usou 300 dos seus créditos anuais. Para imagens: a cada 2 imagens geradas pela IA, consome +1 crédito adicional. Se gerar só 1 imagem, não consome crédito extra. Os créditos são renovados a cada ano de assinatura.",
     },
     {
-      question: "A melhoria de imagem por IA está inclusa?",
+      question: "A melhoria de imagem por IA está inclusa em todos os planos?",
       answer:
-        "Nos planos Start e Basic, a melhoria de imagem NÃO está inclusa. No plano Business, ela é opcional e cobra créditos adicionais. Apenas no plano Professional a melhoria de imagem está 100% inclusa sem custos extras.",
+        "Não. No plano Start, a melhoria de imagem por IA NÃO está disponível (apenas imagem padrão, sem IA). A partir do plano Basic, a melhoria de imagens por IA está liberada, sendo que a cada 2 imagens geradas, consome 1 crédito adicional.",
+    },
+    {
+      question: "O que é Multiloja e como funciona?",
+      answer:
+        "Multiloja permite adicionar lojas extras à sua conta por R$ 149,90/mês cada. Cada loja extra tem: produtos separados, canais separados, melhorias separadas e permissões separadas. Todas as lojas compartilham os mesmos créditos do plano principal.",
     },
     {
       question: "Posso mudar de plano a qualquer momento?",
@@ -157,7 +167,7 @@ export default function PlansPage() {
         "Sim! Você pode fazer upgrade ou downgrade do seu plano a qualquer momento. Se fizer upgrade, a diferença será cobrada proporcionalmente. Se fizer downgrade, o crédito será aplicado na próxima fatura.",
     },
     {
-      question: "O que acontece se eu usar todos os SKUs antes do fim do ano?",
+      question: "O que acontece se eu usar todos os créditos antes do fim do ano?",
       answer:
         "Você receberá um aviso quando atingir 80% dos créditos. Ao esgotar 100%, poderá comprar pacotes adicionais de créditos ou fazer upgrade para um plano maior.",
     },
@@ -174,27 +184,41 @@ export default function PlansPage() {
   ]
 
   const comparisonFeatures = [
-    { name: "SKUs melhorados por ano", start: "1.000", basic: "3.000", business: "5.000", professional: "10.000" },
-    { name: "Canais integrados", start: "1", basic: "2", business: "3", professional: "4" },
-    { name: "IA de títulos e descrições", start: true, basic: true, business: true, professional: true },
-    { name: "IA de atributos e SEO", start: true, basic: true, business: true, professional: true },
-    { name: "Otimização automática", start: true, basic: true, business: true, professional: true },
-    { name: "Cadastro com 1 clique", start: true, basic: true, business: true, professional: true },
-    { name: "Templates liberados", start: false, basic: false, business: true, professional: true },
+    { name: "Limite de SKUs", start: "1.000", basic: "3.000", business: "5.000", professional: "10.000" },
+    { name: "Melhorias de IA por ano", start: "1.000", basic: "3.000", business: "5.000", professional: "10.000" },
+    { name: "Canais de integração", start: "1", basic: "2", business: "3", professional: "4" },
     {
-      name: "Melhoria de imagem por IA",
-      start: "Não incluso",
-      basic: "Não incluso",
-      business: "Opcional",
-      professional: "Incluso",
+      name: "Melhorias de título, descrição e atributos",
+      start: true,
+      basic: true,
+      business: true,
+      professional: true,
     },
+    { name: "Diagnóstico de catálogo", start: true, basic: true, business: true, professional: true },
+    { name: "Sugestões de SEO por IA", start: true, basic: true, business: true, professional: true },
+    { name: "Painel completo de acompanhamento", start: true, basic: true, business: true, professional: true },
+    { name: "Cadastro por 1 clique / código de barras", start: false, basic: true, business: true, professional: true },
+    { name: "Melhoria de Imagem por IA", start: false, basic: true, business: true, professional: true },
+    {
+      name: "Notificações por WhatsApp",
+      start: false,
+      basic: "Básicas",
+      business: "Inteligentes",
+      professional: "Avançadas",
+    },
+    { name: "Alertas de baixa performance", start: false, basic: false, business: true, professional: true },
+    { name: "IA monitora e sugere melhorias", start: false, basic: false, business: true, professional: true },
+    { name: "Templates de otimização", start: false, basic: false, business: true, professional: true },
+    { name: "IA integrada ao WhatsApp", start: false, basic: false, business: false, professional: true },
+    { name: "Atendimento prioritário", start: false, basic: false, business: false, professional: true },
     {
       name: "Suporte",
       start: "WhatsApp",
-      basic: "WhatsApp Prioritário",
-      business: "WhatsApp Premium",
-      professional: "WhatsApp Premium+",
+      basic: "WhatsApp",
+      business: "WhatsApp Avançado",
+      professional: "Prioritário",
     },
+    { name: "Multiloja", start: "+R$ 149,90", basic: "+R$ 149,90", business: "+R$ 149,90", professional: "+R$ 99,90" },
   ]
 
   return (
@@ -204,8 +228,7 @@ export default function PlansPage() {
         <div>
           <h1 className="font-serif text-3xl font-bold text-foreground mb-2">Planos</h1>
           <p className="text-muted-foreground">
-            Escolha o plano ideal para o tamanho do seu catálogo. Todos os valores são cobrados mensalmente com contrato
-            anual.
+            Escolha o plano ideal para o tamanho do seu catálogo. Modelo baseado em SKUs + Créditos de IA.
           </p>
         </div>
 
@@ -234,7 +257,7 @@ export default function PlansPage() {
                   <p className="text-sm font-medium">
                     {currentPlan.creditsUsed.toLocaleString()} / {currentPlan.creditsLimit.toLocaleString()}
                   </p>
-                  <p className="text-xs text-muted-foreground">SKUs melhorados</p>
+                  <p className="text-xs text-muted-foreground">Créditos usados</p>
                 </div>
               </div>
               <div className="h-8 w-px bg-border hidden lg:block" />
@@ -252,17 +275,24 @@ export default function PlansPage() {
           </div>
         </div>
 
-        {/* Info Banner */}
-        <div className="bg-blue-50 border border-blue-200 rounded-xl p-4">
+        {/* Info Banner - Regras de Crédito */}
+        <div className="bg-amber-50 border border-amber-200 rounded-xl p-4">
           <div className="flex items-start gap-3">
-            <Info className="h-5 w-5 text-blue-500 flex-shrink-0 mt-0.5" />
+            <Zap className="h-5 w-5 text-amber-600 flex-shrink-0 mt-0.5" />
             <div>
-              <h4 className="font-medium text-foreground mb-1">Por que essa estrutura?</h4>
-              <p className="text-sm text-muted-foreground">
-                Texto e otimização são de uso diário, por isso estão em <strong>todos os planos</strong>. A melhoria de
-                imagem por IA tem custo maior, então é liberada apenas nos planos Business (opcional) e Professional
-                (inclusa).
-              </p>
+              <h4 className="font-medium text-foreground mb-1">Regras de Crédito</h4>
+              <ul className="text-sm text-muted-foreground space-y-1">
+                <li>
+                  • <strong>Cada SKU melhorado = 1 crédito</strong> consumido
+                </li>
+                <li>
+                  • <strong>Imagens por IA:</strong> a cada 2 imagens geradas = +1 crédito adicional (1 imagem não
+                  consome extra)
+                </li>
+                <li>
+                  • Créditos são <strong>renovados anualmente</strong> conforme o plano
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -297,21 +327,42 @@ export default function PlansPage() {
                 </div>
 
                 <div className="p-5">
-                  <div className="mb-5">
+                  <div className="mb-4">
                     <div className="flex items-baseline gap-1">
                       <span className="text-3xl font-bold text-foreground">
                         R$ {plan.price.toFixed(2).replace(".", ",")}
                       </span>
                       <span className="text-muted-foreground text-sm">/mês</span>
                     </div>
-                    <div className="mt-3 bg-amber-50 border border-amber-200 rounded-lg p-2">
+                    <p className="text-xs text-muted-foreground mt-1">
+                      Cobrado anualmente (R$ {plan.priceYearly.toFixed(2).replace(".", ",")})
+                    </p>
+                  </div>
+
+                  {/* Créditos e Limites */}
+                  <div className="space-y-2 mb-4">
+                    <div className="bg-amber-50 border border-amber-200 rounded-lg p-2">
                       <p className="text-xs font-medium text-amber-700">
                         <Zap className="h-3 w-3 inline mr-1" />
-                        {plan.credits} SKUs melhorados/ano
+                        {plan.credits} créditos IA/ano
                       </p>
+                    </div>
+                    <div className="flex gap-2 text-xs">
+                      <span className="bg-gray-100 px-2 py-1 rounded">{plan.skuLimit} SKUs</span>
+                      <span className="bg-gray-100 px-2 py-1 rounded">
+                        {plan.channels} {plan.channels === 1 ? "canal" : "canais"}
+                      </span>
                     </div>
                   </div>
 
+                  {/* Inherited */}
+                  {plan.inherited && (
+                    <div className="mb-3 bg-blue-50 border border-blue-200 rounded-lg p-2">
+                      <p className="text-xs font-medium text-blue-700 text-center">{plan.inherited}</p>
+                    </div>
+                  )}
+
+                  {/* Features */}
                   <ul className="space-y-2 mb-4">
                     {plan.features.map((feature, index) => (
                       <li key={index} className="flex items-start gap-2">
@@ -320,6 +371,16 @@ export default function PlansPage() {
                       </li>
                     ))}
                   </ul>
+
+                  {/* Image Note */}
+                  {plan.imageNote && (
+                    <div className="mb-3 bg-gray-50 border border-gray-200 rounded-lg p-2">
+                      <p className="text-xs text-gray-600 flex items-center gap-1">
+                        <ImageIcon className="h-3 w-3" />
+                        {plan.imageNote}
+                      </p>
+                    </div>
+                  )}
 
                   {/* Not Included Items */}
                   {plan.notIncluded && plan.notIncluded.length > 0 && (
@@ -333,22 +394,18 @@ export default function PlansPage() {
                     </ul>
                   )}
 
-                  {/* Optional Feature (Business) */}
-                  {plan.optionalFeature && (
-                    <div className="mb-4 bg-amber-50 border border-amber-200 rounded-lg p-2">
-                      <p className="text-xs text-amber-700 flex items-center gap-1">
-                        <ImageIcon className="h-3 w-3" />
-                        {plan.optionalFeature}
-                      </p>
-                    </div>
-                  )}
-
                   {/* Highlight (Professional) */}
                   {plan.highlight && (
                     <div className="mb-4 bg-green-50 border border-green-200 rounded-lg p-2">
                       <p className="text-xs text-green-700 font-medium text-center">{plan.highlight}</p>
                     </div>
                   )}
+
+                  {/* Multiloja */}
+                  <div className="mb-4 flex items-center gap-2 text-xs text-muted-foreground">
+                    <Store className="h-3 w-3" />
+                    <span>Multiloja: {plan.multistore}</span>
+                  </div>
 
                   <Button
                     className={`w-full ${plan.popular ? "bg-primary hover:bg-primary/90" : plan.current ? "bg-green-500 hover:bg-green-600" : ""}`}
@@ -407,7 +464,7 @@ export default function PlansPage() {
               <tbody>
                 {comparisonFeatures.map((feature, index) => (
                   <tr key={index} className="border-b border-border last:border-0">
-                    <td className="p-4 font-medium">{feature.name}</td>
+                    <td className="p-4 font-medium text-sm">{feature.name}</td>
                     <td className="p-4 text-center">
                       {typeof feature.start === "boolean" ? (
                         feature.start ? (
@@ -416,9 +473,7 @@ export default function PlansPage() {
                           <X className="h-5 w-5 text-red-400 mx-auto" />
                         )
                       ) : (
-                        <span className={`text-sm ${feature.start === "Não incluso" ? "text-red-500" : ""}`}>
-                          {feature.start}
-                        </span>
+                        <span className="text-sm">{feature.start}</span>
                       )}
                     </td>
                     <td className="p-4 text-center">
@@ -429,9 +484,7 @@ export default function PlansPage() {
                           <X className="h-5 w-5 text-red-400 mx-auto" />
                         )
                       ) : (
-                        <span className={`text-sm ${feature.basic === "Não incluso" ? "text-red-500" : ""}`}>
-                          {feature.basic}
-                        </span>
+                        <span className="text-sm">{feature.basic}</span>
                       )}
                     </td>
                     <td className="p-4 text-center bg-primary/5">
@@ -442,11 +495,7 @@ export default function PlansPage() {
                           <X className="h-5 w-5 text-red-400 mx-auto" />
                         )
                       ) : (
-                        <span
-                          className={`text-sm ${feature.business === "Opcional" ? "text-amber-600 font-medium" : ""}`}
-                        >
-                          {feature.business}
-                        </span>
+                        <span className="text-sm">{feature.business}</span>
                       )}
                     </td>
                     <td className="p-4 text-center">
@@ -457,11 +506,7 @@ export default function PlansPage() {
                           <X className="h-5 w-5 text-red-400 mx-auto" />
                         )
                       ) : (
-                        <span
-                          className={`text-sm ${feature.professional === "Incluso" ? "text-green-600 font-medium" : ""}`}
-                        >
-                          {feature.professional}
-                        </span>
+                        <span className="text-sm">{feature.professional}</span>
                       )}
                     </td>
                   </tr>
@@ -472,71 +517,78 @@ export default function PlansPage() {
         </div>
 
         {/* Trust Badges */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-          <div className="bg-card border border-border rounded-xl p-4 text-center">
-            <Shield className="h-8 w-8 text-green-500 mx-auto mb-2" />
-            <h4 className="font-medium text-sm">Pagamento Seguro</h4>
-            <p className="text-xs text-muted-foreground">Criptografia SSL</p>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="flex items-center gap-3 p-4 bg-card border border-border rounded-xl">
+            <Shield className="h-8 w-8 text-green-500" />
+            <div>
+              <p className="font-medium text-sm">Pagamento Seguro</p>
+              <p className="text-xs text-muted-foreground">Criptografia SSL</p>
+            </div>
           </div>
-          <div className="bg-card border border-border rounded-xl p-4 text-center">
-            <Clock className="h-8 w-8 text-blue-500 mx-auto mb-2" />
-            <h4 className="font-medium text-sm">Sem Fidelidade</h4>
-            <p className="text-xs text-muted-foreground">Cancele quando quiser</p>
+          <div className="flex items-center gap-3 p-4 bg-card border border-border rounded-xl">
+            <Clock className="h-8 w-8 text-blue-500" />
+            <div>
+              <p className="font-medium text-sm">Sem Fidelidade</p>
+              <p className="text-xs text-muted-foreground">Cancele quando quiser</p>
+            </div>
           </div>
-          <div className="bg-card border border-border rounded-xl p-4 text-center">
-            <Users className="h-8 w-8 text-purple-500 mx-auto mb-2" />
-            <h4 className="font-medium text-sm">+2.000 Clientes</h4>
-            <p className="text-xs text-muted-foreground">Confiam na Nexsi</p>
+          <div className="flex items-center gap-3 p-4 bg-card border border-border rounded-xl">
+            <MessageCircle className="h-8 w-8 text-primary" />
+            <div>
+              <p className="font-medium text-sm">Suporte WhatsApp</p>
+              <p className="text-xs text-muted-foreground">Em todos os planos</p>
+            </div>
           </div>
-          <div className="bg-card border border-border rounded-xl p-4 text-center">
-            <MessageCircle className="h-8 w-8 text-amber-500 mx-auto mb-2" />
-            <h4 className="font-medium text-sm">Suporte Humanizado</h4>
-            <p className="text-xs text-muted-foreground">Resposta em 24h</p>
+          <div className="flex items-center gap-3 p-4 bg-card border border-border rounded-xl">
+            <Zap className="h-8 w-8 text-amber-500" />
+            <div>
+              <p className="font-medium text-sm">10 Melhorias Grátis</p>
+              <p className="text-xs text-muted-foreground">Para testar a IA</p>
+            </div>
           </div>
         </div>
 
         {/* FAQ Section */}
         <div className="bg-card border border-border rounded-xl overflow-hidden">
-          <div className="p-6 border-b border-border">
-            <div className="flex items-center gap-2">
-              <HelpCircle className="h-5 w-5 text-primary" />
-              <h2 className="font-serif text-xl font-bold">Perguntas Frequentes</h2>
-            </div>
+          <div className="p-6 border-b border-border bg-muted/50">
+            <h2 className="font-serif text-xl font-bold">Perguntas Frequentes</h2>
+            <p className="text-sm text-muted-foreground mt-1">Tire suas dúvidas sobre os planos</p>
           </div>
 
           <div className="divide-y divide-border">
             {faqs.map((faq, index) => (
               <div key={index} className="p-4">
                 <button
+                  className="flex items-center justify-between w-full text-left"
                   onClick={() => setExpandedFaq(expandedFaq === index ? null : index)}
-                  className="w-full flex items-center justify-between text-left"
                 >
-                  <span className="font-medium text-foreground">{faq.question}</span>
+                  <span className="font-medium text-foreground pr-4">{faq.question}</span>
                   {expandedFaq === index ? (
                     <ChevronUp className="h-5 w-5 text-muted-foreground flex-shrink-0" />
                   ) : (
                     <ChevronDown className="h-5 w-5 text-muted-foreground flex-shrink-0" />
                   )}
                 </button>
-                {expandedFaq === index && <p className="mt-3 text-sm text-muted-foreground">{faq.answer}</p>}
+                {expandedFaq === index && (
+                  <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{faq.answer}</p>
+                )}
               </div>
             ))}
           </div>
         </div>
 
-        {/* CTA */}
-        <div className="bg-gradient-to-r from-primary/10 to-purple-100 border border-primary/20 rounded-xl p-8 text-center">
-          <Zap className="h-12 w-12 text-primary mx-auto mb-4" />
-          <h3 className="text-2xl font-bold text-foreground mb-2">Ainda tem dúvidas?</h3>
-          <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
-            Nossa equipe está pronta para ajudar você a escolher o melhor plano para o seu negócio.
+        {/* CTA Final */}
+        <div className="bg-gradient-to-r from-primary/10 to-pink-500/10 border border-primary/20 rounded-xl p-8 text-center">
+          <h2 className="font-serif text-2xl font-bold mb-2">Ainda tem dúvidas?</h2>
+          <p className="text-muted-foreground mb-6">
+            Fale com nossa equipe e descubra o melhor plano para o seu negócio
           </p>
-          <div className="flex items-center justify-center gap-4">
-            <Button variant="outline">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button className="bg-primary hover:bg-primary/90">
               <MessageCircle className="h-4 w-4 mr-2" />
               Falar com Especialista
             </Button>
-            <Button className="bg-amber-500 hover:bg-amber-600">
+            <Button variant="outline">
               <Calendar className="h-4 w-4 mr-2" />
               Agendar Demonstração
             </Button>
