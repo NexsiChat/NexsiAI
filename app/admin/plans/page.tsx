@@ -112,7 +112,6 @@ export default function PlansPage() {
       multistore: "R$ 149,90 por loja extra",
       cta: "Selecionar Plano",
       popular: true,
-      trial: "Teste grátis por 14 dias",
       current: false,
     },
     {
